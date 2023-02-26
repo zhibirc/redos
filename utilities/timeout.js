@@ -1,9 +1,10 @@
 function timeout ( delay ) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             console.warn(`operation timed out (${delay}ms)`);
             reject();
         }, delay);
+        timer.unref();
     });
 }
 
