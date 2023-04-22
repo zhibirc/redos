@@ -1,3 +1,7 @@
+/**
+ * Main application entry point.
+ */
+
 const os = require('os');
 const path = require('path');
 const { fork } = require('child_process');
