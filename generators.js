@@ -2,9 +2,11 @@ const required = require('./utilities/required');
 const shiftLeft = require('./utilities/shift-left');
 const isValidRegexp = require('./utilities/is-valid-regexp');
 
-exports.getRandomString = (charList = required(), length = 100, separator = '') => {
+exports.getRandomString = (charList = required(), length = 20, separator = '') => {
+    const endChar = String.fromCodePoint(Math.max(...charList.map(char => char.codePointAt(0))) + 1);
+
     return charList.length
-        ? Array.from({length}, () => charList[Math.random() * charList.length ^ 0]).join(separator) + '!'
+        ? Array.from({length}, () => charList[Math.random() * charList.length ^ 0]).join(separator) + endChar
         : '';
 };
 

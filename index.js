@@ -22,11 +22,8 @@ if ( !Array.isArray(charList) ) {
 }
 
 const regexpList = getRandomRegexp(charList);
-const randomString = getRandomString(
-    // get unique [A-Za-z] characters
-    charList.join('').match(/([a-z])(?!.*\1)/gi),
-    20
-);
+// get unique [A-Za-z] characters
+const randomString = getRandomString(charList.join('').match(/([a-z])(?!.*\1)/gi));
 const stat = [];
 const workerPool = [];
 
